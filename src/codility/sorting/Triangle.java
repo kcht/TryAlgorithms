@@ -18,7 +18,7 @@ public class Triangle {
     }
 
     public int solution(int[] A) {
-        A = quicksort(A);
+        Arrays.sort(A);
 
         boolean triangleExists = false;
         for(int i=0; i<A.length-2; i++){
@@ -26,40 +26,8 @@ public class Triangle {
                 triangleExists = true;
             }
         }
-
         return triangleExists ? 1 : 0;
     }
-
-    private int [] quicksort(int [] A){
-        if(A.length > 1){
-            int pivotIndex = partition(A);
-            quicksort(Arrays.copyOfRange(A,0,pivotIndex));
-            quicksort(Arrays.copyOfRange(A, pivotIndex+1, A.length-1));
-        }
-        return A;
-    }
-
-    private int partition(int [] A){
-        int pivot = A[0];
-        int i;
-        int lastSmaller = 0;
-
-        for(i = 1 ; i<A.length; i++){
-            if(A[i] < pivot){
-                lastSmaller++;
-                int temp = A[i];
-                A[i] = A[lastSmaller];
-                A[lastSmaller] = temp;
-            }
-        }
-
-        int temp = A[lastSmaller];
-        A[lastSmaller] = pivot;
-        A[pivot] = temp;
-        return lastSmaller;
-    }
-
-
 }
 
 
