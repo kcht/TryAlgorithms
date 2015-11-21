@@ -28,7 +28,7 @@ public class Fish {
             return 0;
         }
 
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         for(int i = 0; i< A.length; i++){
             if(stack.empty()){
                 stack.push(i);
